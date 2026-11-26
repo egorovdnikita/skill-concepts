@@ -283,7 +283,7 @@ return report;
 
 ## 6². Общие версии: Claude Chat, ChatGPT и GitHub
 
-Общий источник версий — приватный репозиторий `egorovdnikita/skill-concepts`: Concepts в `SKILL.md`, Database в `skills/database/SKILL.md`. Личный контекст и переписки хранятся отдельно, в git не входят.
+Источник версий Concepts — приватный репозиторий `egorovdnikita/skill-concepts`, файл `SKILL.md`. Database — отдельный навык в отдельном `egorovdnikita/skill-database`; синхронизация этого репозитория его не изменяет. Личный контекст и переписки в git не входят.
 
 - Перед изменением навыка проверь свежую версию GitHub через доступное подключение. На Mac сначала запусти `python3 ~/.claude/skills/concepts/scripts/sync-skills.py sync`. Если синхронизация сообщает конфликт или ошибку, останови публикацию и покажи различия; не перезаписывай другую версию.
 - В ChatGPT на Mac редактируй общий исходник Concepts, а не адаптер и не файл в synced. После правки запусти `scripts/sync-skills.py sync`: он синхронизирует локальное зеркало и публикует изменение в GitHub. Затем обнови существующий Concepts в Claude Chat через «Плагины → Concepts → … → Загрузить новую версию», пакетом `concepts.skill`, созданным командой `scripts/sync-skills.py export concepts`. Проверь новую версию в интерфейсе. Если браузер недоступен, явно сообщи: GitHub обновлён, Claude Chat ещё нет.

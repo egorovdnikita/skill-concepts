@@ -12,7 +12,11 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
-FILES = {'concepts': 'SKILL.md', 'database': 'skills/database/SKILL.md'}
+_skill_name = re.search(r'^name:\s*[\'"]?([a-z0-9-]+)[\'"]?\s*$',
+                        (ROOT / 'SKILL.md').read_text().split('---', 2)[1], re.M)
+if not _skill_name:
+    raise RuntimeError('Не найдено имя навыка в SKILL.md.')
+FILES = {_skill_name.group(1): 'SKILL.md'}
 HOME = Path.home()
 PRIVATE = HOME / '.local/share/shared-agent-skills'
 STATE = PRIVATE / 'state.json'
