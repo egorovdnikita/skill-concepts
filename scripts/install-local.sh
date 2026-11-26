@@ -17,7 +17,7 @@ cat > "$PL" <<PLIST
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>com.egorovdnikita.skill-concepts</string>
-  <key>ProgramArguments</key><array><string>/bin/sh</string><string>-c</string><string>git -C "$DEST" pull --ff-only --quiet</string></array>
+  <key>ProgramArguments</key><array><string>/bin/sh</string><string>-c</string><string>/usr/bin/python3 -I "$DEST/scripts/sync-skills.py" sync</string></array>
   <key>StartInterval</key><integer>1800</integer>
   <key>RunAtLoad</key><true/>
   <key>StandardErrorPath</key><string>/tmp/skill-concepts-sync.log</string>
